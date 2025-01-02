@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstein Club | Future University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* Centering the participants list and giving it a border */
+        #participants-list {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 3px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide by default */
+        }
+
+        #view-participants-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #view-participants-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styling */
+        #participants-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto; /* Ensure it can scroll horizontally */
+}
+
+#participants-table th,
+#participants-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Ensure text in cells breaks appropriately */
+}
+
+#participants-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#participants-table td {
+    background-color: #f4f4f4;
+}
+
+#participants-table tr:hover {
+    background-color: #e9f7e9;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #participants-table {
+        display: block; /* Make the table a block element so it can scroll */
+        overflow-x: auto; /* Enable horizontal scroll */
+        white-space: nowrap; /* Prevent wrapping of table content */
+    }
+
+    #participants-table th,
+    #participants-table td {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    #participants-table td {
+        min-width: 150px; /* Set a minimum width for cells */
+    }
+
+    #participants-table th {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+/* For extra small screens (like mobile portrait) */
+@media (max-width: 480px) {
+    #participants-table td {
+        min-width: 120px; /* Smaller width for very small screens */
+    }
+
+    #participants-table th {
+        font-size: 12px; /* Smaller font size */
+    }
+
+    #participants-table td {
+        font-size: 12px; /* Adjust cell text size */
+    }
+}
+        /* General styling for form and buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <header>
+        <!--<div class="logo">
+            <img src="university-logo.png" alt="Future University Logo">
+        </div> -->
+        <div class="container">
+            <div class="logo">Einstein Club</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#members">Our Team</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#registration-form">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    </header>
+
+    <section id="cover" class="cover">
+        <div class="cover-content">
+            <h1>Welcome to Einstein Club</h1>
+            <p>Unleashing the power of curiosity and innovation at Future University</p>
+        </div>
+    </section>
+
+    <section id="members" class="members" style="background: url('images/bg.jpg') #030728 no-repeat center center; background-size: cover;">
+
+
+        <div class="container swiper">
+            <div class="slider-wrapper">
+              <div class="card-list swiper-wrapper">
+                <div class="card-item swiper-slide">
+                  <img src="images/img-1.jpg" alt="User Image" class="user-image">
+                  <h2 class="user-name">Vaishnavi Dixit</h2>
+                  <p class="user-profession">President</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                  <img src="images/img-2.jpg" alt="User Image" class="user-image">
+                  <h2 class="user-name">Adarsh Gupta</h2>
+                  <p class="user-profession">Vice President</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                  <img src="images/img-3.jpg" alt="User Image" class="user-image">
+                  <h2 class="user-name">Harshit Dhoni</h2>
+                  <p class="user-profession">Secretory</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                  <img src="images/img-4.PNG" alt="User Image" class="user-image">
+                  <h2 class="user-name">Anuj Kashyap</h2>
+                  <p class="user-profession">Joint Secretory</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                  <img src="images/img-5.jpg" alt="User Image" class="user-image">
+                  <h2 class="user-name">Muskan Kashyap</h2>
+                  <p class="user-profession">Treasuer</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                  <img src="images/img-6.jpg" alt="User Image" class="user-image">
+                  <h2 class="user-name">Raghav Mishra</h2>
+                  <p class="user-profession">Not decided</p>
+                  <button class="message-button">Message</button>
+                </div>
+                <div class="card-item swiper-slide">
+                    <img src="images/img-7.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Shresth</h2>
+                    <p class="user-profession">Not decided</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                <div class="card-item swiper-slide">
+                    <img src="images/img-8.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Sunny Yadav</h2>
+                    <p class="user-profession">Code Ace</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-9.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Abhinav Tripathi</h2>
+                    <p class="user-profession">Innovation Architect</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-10.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Krish Khandelwal</h2>
+                    <p class="user-profession">Tech Support Enthusiast</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-11.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Rupesh Sharma</h2>
+                    <p class="user-profession">Tech Enthusiast</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-12.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Abhishek Mishra</h2>
+                    <p class="user-profession">Code Commander</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-13.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Abhishesk Mourya</h2>
+                    <p class="user-profession">Data Wrangler</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-14.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Aniket Chauhan</h2>
+                    <p class="user-profession">Design Virtuoso</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-15.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Md. Atif</h2>
+                    <p class="user-profession">
+                        Design Enthusiast <br>
+                        Tech Support Prodigy
+                    </p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-16.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Utkarsh Vishwakarma</h2>
+                    <p class="user-profession">Animation Adept</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-17.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Deekshant Gangwar</h2>
+                    <p class="user-profession">Visual Visionary</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-18.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Ashish Saxena</h2>
+                    <p class="user-profession">Interactive Innovator</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-19.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Nikhil</h2>
+                    <p class="user-profession">Concept Creator</p>
+                    <button class="message-button">Message</button>
+                  </div>
+                  <div class="card-item swiper-slide">
+                    <img src="images/img-20.jpg" alt="User Image" class="user-image">
+                    <h2 class="user-name">Krishna</h2>
+                    <p class="user-profession">Concept Creator</p>
+                    <button class="message-button">Message</button>
+                  </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+          </div>
+          <!-- Linking SwiperJS script -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+          
+    </section>
+
+    <section id="events" class="events">
+        <h2>Events</h2>
+        <div class="events-content">
+            <div class="slider">
+                <div class="slides">
+                  <!-- Each slide with image and description -->
+                  <div class="slide">
+                    <img src="images/debate arena.jpg" alt="Image 1">
+                    <p class="description">Intellectual debate competition on current topics.</p>
+                  </div>
+                  <div class="slide">
+                    <img src="images/garena lg.jpg" alt="Image 2">
+                    <p class="description">Competitive esports tournament featuring BGMI and Free Fire.</p>
+                  </div>
+                  <div class="slide">
+                    <img src="images/smart_wyze.jpg" alt="Image 3">
+                    <p class="description">Fast-paced quiz testing general knowledge.</p>
+                  </div>
+                  <div class="slide">
+                    <img src="images/techno byte.png" alt="Image 4">
+                    <p class="description">Tech event focused on coding and innovation.</p>
+                  </div>
+                </div>
+              </div>
+              <script>
+                const slides = document.querySelector('.slides');
+const slideCount = document.querySelectorAll('.slide').length;
+let currentIndex = 0;
+
+// Function to update the slide position
+function updateSliderPosition() {
+  const slideWidth = slides.children[0].clientWidth;
+  slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+// Auto-slide every 3 seconds
+let autoSlideInterval = setInterval(() => {
+  if (currentIndex < slideCount - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0; // Loop back to the first image
+  }
+  updateSliderPosition();
+}, 3000); // Change 3000 to adjust the interval in milliseconds (3000ms = 3 seconds)
+
+// Next and previous button functionality
+document.querySelector('.slider-button.next').addEventListener('click', () => {
+  clearInterval(autoSlideInterval); // Stop auto-sliding when user manually clicks
+  if (currentIndex < slideCount - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  updateSliderPosition();
+  restartAutoSlide();
+});
+
+document.querySelector('.slider-button.prev').addEventListener('click', () => {
+  clearInterval(autoSlideInterval); // Stop auto-sliding when user manually clicks
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = slideCount - 1;
+  }
+  updateSliderPosition();
+  restartAutoSlide();
+});
+
+// Function to restart auto-slide after manual interaction
+function restartAutoSlide() {
+  autoSlideInterval = setInterval(() => {
+    if (currentIndex < slideCount - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateSliderPosition();
+  }, 3000);
+}
+
+
+              </script>
+                <form id="registration-form">
+                    <h4>Register for an Event</h4>
+                    <label for="event">Select Event:</label>
+                    <select id="event" required>
+                        <option value="hackathon">Hackathon 2025</option>
+                        <option value="ai-seminar">AI Seminar</option>
+                    </select>    
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" placeholder="For ex. BCA 2nd Year" required>
+                
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" required>
+                
+                    <button type="submit">Register</button>
+                </form>
+                <button id="view-participants-btn">View Participants</button>
+                <div id="participants-list">
+                    <h4>Participants</h4>
+                    <table id="participants-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Event</th>
+                                <th>Program</th>
+                            </tr>
+                        </thead>
+                        <tbody id="participants">
+                            <!-- Participants will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Feedback/Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Einstein Club | Future University</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+        
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCrL75HGXFSklX3mVeCUQWL1-o_Q-LEPvA",
+            authDomain: "einstien-club.firebaseapp.com",
+            databaseURL: "https://einstien-club-default-rtdb.firebaseio.com",
+            projectId: "einstien-club",
+            storageBucket: "einstien-club.firebasestorage.app",
+            messagingSenderId: "1027434745642",
+            appId: "1:1027434745642:web:2b000f059136368df75853",
+            measurementId: "G-M5SJREW15V",
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        
+        // Handle form submission
+        const form = document.getElementById("registration-form");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+        
+            const data = {
+                event: form.event.value,
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                timestamp: new Date().toISOString(),
+            };
+        
+            try {
+                await push(ref(database, "registrations"), data);
+                alert("Registration successful!");
+                form.reset();
+            } catch (error) {
+                console.error("Error saving data:", error);
+                alert("There was an error submitting your registration.");
+            }
+        });
+
+        // Function to view participants and toggle button
+        const viewParticipantsBtn = document.getElementById('view-participants-btn');
+        const participantsList = document.getElementById('participants-list');
+        const participantsTbody = document.getElementById('participants');
+    
+viewParticipantsBtn.addEventListener("click", async () => {
+    const eventRegistrationsRef = ref(database, `registrations`);
+
+    if (participantsList.style.display === "none") {
+        try {
+            const snapshot = await get(eventRegistrationsRef);
+            if (snapshot.exists()) {
+                const participants = snapshot.val();
+                participantsTbody.innerHTML = ""; // Clear previous rows
+
+                let hasParticipants = false;
+
+                for (let key in participants) {
+                    const { name, email, event, program } = participants[key];
+
+                    const row = document.createElement("tr");
+                    const nameCell = document.createElement("td");
+                    const emailCell = document.createElement("td");
+                    const eventCell = document.createElement("td");
+                    const programCell = document.createElement("td");
+
+                    nameCell.textContent = name || "N/A";
+                    emailCell.textContent = email || "N/A";
+                    eventCell.textContent = event || "N/A";
+                    programCell.textContent = program || "N/A";
+
+                    row.appendChild(nameCell);
+                    row.appendChild(emailCell);
+                    row.appendChild(eventCell);
+                    row.appendChild(programCell);
+                    participantsTbody.appendChild(row);
+
+                    hasParticipants = true;
+                }
+
+                if (!hasParticipants) {
+                    alert("No participants found.");
+                } else {
+                    participantsList.style.display = "block";
+                    viewParticipantsBtn.textContent = "Close List";
+                }
+            } else {
+                alert("No participants found.");
+            }
+        } catch (error) {
+            console.error("Error fetching participants:", error);
+            alert("There was an error fetching participants.");
+        }
+    } else {
+        participantsList.style.display = "none";
+        viewParticipantsBtn.textContent = "View Participants";
+    }
+});
+
+
+const mobileMenu = document.getElementById("mobile-menu");
+const navList = document.querySelector(".nav-list");
+
+mobileMenu.addEventListener("click", () => {
+    navList.classList.toggle("active");
+});
+const swiper = new Swiper('.slider-wrapper', {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 30,
+
+  // Pagination bullets
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // Responsive breakpoints
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
+  }
+});
+
+    </script>
+</body>
+</html>
